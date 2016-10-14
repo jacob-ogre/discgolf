@@ -2,6 +2,7 @@
 % Please edit documentation in R/categories.R
 \name{categories}
 \alias{categories}
+\alias{categories_details}
 \alias{category}
 \alias{category_create}
 \alias{category_latest_topics}
@@ -22,6 +23,8 @@ category_new_topics(category, url = NULL, key = NULL, user = NULL, ...)
 category_create(category, color, text_color, description = NULL,
   permissions = NULL, parent_category = NULL, url = NULL, key = NULL,
   user = NULL, ...)
+
+categories_details()
 }
 \arguments{
 \item{url}{Base url for a Discourse installation. See \code{\link{disc_setup}}}
@@ -57,6 +60,9 @@ Apprently there's no ability to delete categories via the API.
 # all categories
 categories()
 
+# get categories details
+categories_details()
+
 # a specfic category
 category("questions")
 category("packages")
@@ -72,6 +78,7 @@ category_new_topics("packages")
 
 # create a category
 category_create("stuff", "F7941D", "FFFFFF", "My new category")
+
 }
 }
 

@@ -10,9 +10,13 @@
 #' @param parent_category x. optional
 #' @template args
 #' @details Apprently there's no ability to delete categories via the API.
+#' @export
 #' @examples \dontrun{
 #' # all categories
 #' categories()
+#'
+#' # get categories details
+#' categories_details()
 #'
 #' # a specfic category
 #' category("questions")
@@ -29,6 +33,7 @@
 #'
 #' # create a category
 #' category_create("stuff", "F7941D", "FFFFFF", "My new category")
+#'
 #' }
 categories <- function(url = NULL, key = NULL, user = NULL, ...){
   args <- dc(list(api_key = check_key(key), api_username = check_user(user)))
@@ -74,4 +79,10 @@ category_create <- function(category, color, text_color, description = NULL,
                   parent_category_id = parent_category,
                   api_key = check_key(key), api_username = check_user(user)))
   disc_POST(check_url(url), "categories", args, ...)
+}
+
+#' @export
+#' @rdname categories
+categories_details <- function() {
+  categories()$category_list$categories
 }

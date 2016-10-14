@@ -64,3 +64,10 @@ test_that("httr curl options work", {
   library("httr")
   expect_error(categories(config = timeout(seconds = 0.001)))
 })
+
+test_that("categories_details works as expected", {
+  det <- categories_details()
+
+  expect_is(det, "data.frame")
+  expect_type(det, "list")
+})
